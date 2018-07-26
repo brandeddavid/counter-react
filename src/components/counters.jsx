@@ -23,6 +23,7 @@ class Counters extends Component {
                         onDelete={this.handleDelete} 
                         onAdd={this.handleAdd}
                         onIncrement={this.handleIncrement} 
+                        onDecrement={this.handleDecrement}
                     />
                 )}
             </div>
@@ -51,9 +52,17 @@ class Counters extends Component {
     handleIncrement = (counter) => {
         const counters = [...this.state.counters]
         const index = counters.indexOf(counter)
-        counter[index] = {...counter}
-        counter.value++
-        this.setState(counters)
+        counters[index] = {...counter}
+        counters[index].value++
+        this.setState({counters})
+    }
+
+    handleDecrement = (counter) => {
+        const counters = [...this.state.counters]
+        const index = counters.indexOf(counter)
+        counters[index] = {...counter}
+        counters[index].value--
+        this.setState({counters})
     }
 }
  

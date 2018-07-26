@@ -12,7 +12,7 @@ class Counter extends Component {
                 <button onClick={() => this.props.onIncrement(this.props.counter)} className="btn btn-dark btn-sm">+</button>
             </span>
             <span id="decrementButton">
-                <button onClick={this.handleDecrement} className="btn btn-info btn-sm m-2">-</button>
+                <button onClick={() => this.props.onDecrement(this.props.counter)} className="btn btn-info btn-sm m-2">-</button>
             </span>
             <span id="addButton">
                 <button onClick={this.props.onAdd} className="btn btn-success btn-sm">Add</button>
