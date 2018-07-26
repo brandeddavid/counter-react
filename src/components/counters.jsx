@@ -14,6 +14,7 @@ class Counters extends Component {
     render() { 
         return (
             <div>
+                <button className="btn btn-success btn-sm" onClick={this.handleAdd}>New</button>
                 <button className="btn btn-danger btn-sm m-2" onClick={this.handleReset} >Reset</button>
                 {this.state.counters.map(
                     counter => <Counter 
@@ -21,7 +22,6 @@ class Counters extends Component {
                         counter = {counter}
                         selected={true} 
                         onDelete={this.handleDelete} 
-                        onAdd={this.handleAdd}
                         onIncrement={this.handleIncrement} 
                         onDecrement={this.handleDecrement}
                     />
@@ -31,7 +31,9 @@ class Counters extends Component {
     }
 
     handleAdd = () => {
-        console.log("Add Function Called");
+        const counters = [...this.state.counters]
+        counters.push({id: 6, value:0})
+        this.setState({counters})
     }
 
     handleDelete = (counterId) => {
